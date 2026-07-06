@@ -145,7 +145,7 @@ export default function App() {
               </LangSwitcher>
               <div className="navSocials">
                 <a href="https://github.com/Dall06" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><GithubIcon /></a>
-                <a href="https://www.linkedin.com/in/diego-a-le%C3%B3n-6b821a20a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><LinkedinIcon /></a>
+                <a href="https://www.linkedin.com/in/diego-alberto-le%C3%B3n-6b821a20a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><LinkedinIcon /></a>
               </div>
               <a href="#contact-section" className="btnSecondary">{t.contactBtn}</a>
             </div>
@@ -189,7 +189,7 @@ export default function App() {
                 <span>{t.ccOptionWa}</span>
                 <ArrowRight size={12} className="arrow-icon" />
               </a>
-              <a href="https://www.linkedin.com/in/diego-a-le%C3%B3n-6b821a20a/" target="_blank" rel="noopener noreferrer" className="contact-link">
+              <a href="https://www.linkedin.com/in/diego-alberto-le%C3%B3n-6b821a20a/" target="_blank" rel="noopener noreferrer" className="contact-link">
                 <LinkedinIcon size={14} />
                 <span>{t.ccOptionLi}</span>
                 <ArrowRight size={12} className="arrow-icon" />
@@ -203,12 +203,12 @@ export default function App() {
 
             <QrSection>
               <img
-                src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://www.linkedin.com/in/diego-a-le%C3%B3n-6b821a20a/&color=05060b&bgcolor=fafafa"
+                src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://www.linkedin.com/in/diego-alberto-le%C3%B3n-6b821a20a/&color=05060b&bgcolor=fafafa"
                 alt="QR Contact"
               />
               <div className="qr-details">
                 <span className="qr-label">{t.ccQrLabel}</span>
-                <a href="https://www.linkedin.com/in/diego-a-le%C3%B3n-6b821a20a/" target="_blank" rel="noopener noreferrer" className="qr-url">
+                <a href="https://www.linkedin.com/in/diego-alberto-le%C3%B3n-6b821a20a/" target="_blank" rel="noopener noreferrer" className="qr-url">
                   {t.ccQrLinkText} &rarr;
                 </a>
               </div>
@@ -218,7 +218,7 @@ export default function App() {
 
         {/* Lado Derecho: Propuesta de Servicios Directa y Formulario */}
         <DashboardPanel>
-          <div className="glass-panel main-services-card">
+          <ServicesCard>
             <ServicesLayout>
               <TabTitle>{t.servicesTitle}</TabTitle>
               <TabIntro>{t.servicesSubtitle}</TabIntro>
@@ -265,10 +265,10 @@ export default function App() {
                 </ServiceItem>
               </ServicesList>
             </ServicesLayout>
-          </div>
+          </ServicesCard>
 
           {/* Formulario de Contacto Directo */}
-          <div className="glass-panel main-services-card form-section" id="contact-section" style={{ marginTop: '24px' }}>
+          <ServicesCard id="contact-section">
             <TabTitle>{t.formTitle}</TabTitle>
             <TabIntro style={{ marginBottom: '20px' }}>
               {t.ccBrief}
@@ -310,7 +310,7 @@ export default function App() {
               <WhatsAppIcon size={13} />
               <span>{t.formOr} &rarr;</span>
             </FormAlternative>
-          </div>
+          </ServicesCard>
         </DashboardPanel>
       </SplitContainer>
 
@@ -648,13 +648,23 @@ const QrSection = styled.div`
 const DashboardPanel = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 24px;
+`;
+
+const ServicesCard = styled.div`
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+  padding: 36px;
   
-  &.main-services-card {
-    padding: 36px;
-    
-    @media (max-width: 640px) {
-      padding: 24px;
-    }
+  &:hover {
+    border-color: var(--border-hover);
+  }
+  
+  @media (max-width: 640px) {
+    padding: 24px;
   }
 `;
 
@@ -679,13 +689,23 @@ const ServicesLayout = styled.div`
 const ServicesList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
 `;
 
 const ServiceItem = styled.div`
   display: flex;
   gap: 16px;
   align-items: start;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.005);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+  
+  &:hover {
+    border-color: var(--border-hover);
+    background: rgba(59, 130, 246, 0.01);
+  }
   
   .content {
     h4 {
