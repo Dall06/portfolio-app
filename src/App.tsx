@@ -147,7 +147,6 @@ export default function App() {
                 <a href="https://github.com/Dall06" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><GithubIcon /></a>
                 <a href="https://www.linkedin.com/in/diego-alberto-le%C3%B3n-6b821a20a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><LinkedinIcon /></a>
               </div>
-              <a href="#contact-section" className="btnSecondary">{t.contactBtn}</a>
             </div>
           </div>
         </div>
@@ -360,8 +359,6 @@ const MainLayout = styled.div`
     display: flex;
     align-items: center;
     gap: 4px;
-    padding-right: 12px;
-    border-right: 1px solid var(--border-default);
     
     a {
       display: flex;
